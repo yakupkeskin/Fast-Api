@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Process</title>
+    <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<form action = "/process" method="POST" enctype="multipart/form-data">
+    <input type = "text" name = "nm">
+    <input type="submit" value="Search By Name">
+</form>
+<br>
+
+<h2>Process Table</h2>
+
+<table>
+    <tr>
+        <th>Pid</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Memory Percent</th>
+    </tr>
+    {%for proc in proces%}
+    <tr>
+
+        <td>{{proc['pid']}}</td>
+        <td>{{proc['name']}}</td>
+        <td>{{proc['status']}}</td>
+        <td>{{proc['mem_percent']}}</td>
+    </tr>
+     {%endfor%}
+
+</table>
+
+
+</body>
+</html>
